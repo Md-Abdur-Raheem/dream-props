@@ -1,39 +1,12 @@
 import React from 'react';
+import HeroSection from '../HeroSection/HeroSection';
+import PopularProperties from '../PopularProperties/PopularProperties';
 
 const Home = () => {
     return (
         <div>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
-            <h1>I am home</h1>
+            <HeroSection></HeroSection>
+            <PopularProperties></PopularProperties>
         </div>
     );
 };
