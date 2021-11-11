@@ -28,10 +28,11 @@ const HeroSection = () => {
             <Typography
             variant="h4"
             sx={{
-                color: "#000",
+                color: "#fff",
                 lineHeight: 3,
                 fontFamily: "Noto Sans",
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                fontSize: 50
                 }}
             >FIND A PERFECT DREAM HOUSE</Typography>
             <Box>
