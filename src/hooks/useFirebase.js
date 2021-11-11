@@ -25,8 +25,11 @@ const useFirebase = () => {
                 // Signed in 
                 const user = userCredential.user;
                 const destination = location.state?.from || '/';
+                const newUser = { name, email };
+                
                 setUser(user);
                 history.replace(destination);
+                saveUser(newUser);
             })
             .catch((error) => {
                 setError(error.message);
@@ -71,7 +74,17 @@ const useFirebase = () => {
            setLoading(false);
        });
         return () => usnsubscribe;
-    },[auth])
+    }, [auth])
+    
+    const saveUser = (newUser) => {
+        fetch('http://localhost:5000/users', {
+            method: "POST",
+            headers: { 'content-type': "application/json" },
+            body: JSON.stringify(newUser)
+        })
+        .then(res=> res.json())
+        .then(data => console.log(data))
+    }
 
     return {
         registerUser,
