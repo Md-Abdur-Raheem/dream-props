@@ -17,5 +17,5 @@ const useStyles = makeStyles({
 
 export default function DreamBtn(props) {
   const classes = useStyles();
-    return <Button className={classes.root}>{props.children}</Button>;
+    return <Button type="submit" className={classes.root}>{props.children}</Button>;
 }

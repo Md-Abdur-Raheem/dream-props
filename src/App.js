@@ -9,6 +9,7 @@ import Footer from './Pages/Shared/Footer/Footer';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
 import Properties from './Pages/Properties/Properties/Properties';
+import Register from './Pages/Register/Register';
 
 function App() {
   return (
@@ -21,11 +22,15 @@ function App() {
           </Route>
           
           <Route path="/properties">
-             <Properties></Properties>
+             <Properties/>
           </Route>
           
           <Route path="/login">
               <Login />
+          </Route>
+
+          <Route path="/register">
+              <Register />
           </Route>
           
             <Route path="/">
