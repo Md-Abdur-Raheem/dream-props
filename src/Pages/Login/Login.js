@@ -2,9 +2,11 @@ import { Button, Container, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import DreamBtn from '../../styledComponent/DreamBtn';
 
 const Login = () => {
+    const { logInUser } = useAuth();
     const inputStyles = {
         width: "280px",
         padding: '15px 20px',
@@ -16,7 +18,8 @@ const Login = () => {
     }
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data);
+        const { email, password } = data;
+        logInUser(email, password)
     }
     return (
         <Container

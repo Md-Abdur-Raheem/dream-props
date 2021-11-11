@@ -9,10 +9,11 @@ import Box from '@mui/material/Box';
 import Slide from '@mui/material/Slide';
 import { Button, Container } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 function Header(props) {
-  const { children, window } = props;
-  const trigger = useScrollTrigger({
+    const { children, window } = props;
+    const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
 
@@ -29,6 +30,7 @@ Header.propTypes = {
 };
 
 export default function HideAppBar(props) {
+    const { user, logOutUser } = useAuth();
     return (
     <React.Fragment>
         <CssBaseline />
@@ -79,7 +81,20 @@ export default function HideAppBar(props) {
                                             }}
                                         >Properties</Button>
                                     </NavLink>
-                                    <NavLink
+                                {
+                                    user.email ? 
+                                        <Button
+                                            onClick={logOutUser}
+                                            variant="text"
+                                            sx={{
+                                                color: "#000",
+                                                fontWeight: "bold",
+                                                fontFamily: "Noto Sans",
+                                                fontSize: 16
+                                            }}
+                                        >Log Out</Button>
+                                        :
+                                        <NavLink
                                         to="/login"
                                         style={{
                                             textDecoration: "none",
@@ -95,7 +110,8 @@ export default function HideAppBar(props) {
                                                 fontSize: 16
                                             }}
                                         >Login</Button>
-                                    </NavLink>
+                                         </NavLink>    
+                                }
                                 </Toolbar>
                     </Container>
                 </AppBar>
