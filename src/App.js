@@ -11,6 +11,8 @@ import Login from './Pages/Login/Login';
 import Properties from './Pages/Properties/Properties/Properties';
 import Register from './Pages/Register/Register';
 import AuthProvider from './context/AuthProvider';
+import Order from './Pages/Order/Order';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -19,13 +21,22 @@ function App() {
         <Router>
           <Header></Header>
           <Switch>
+
               <Route path="/home">
+                <Home/>
+            </Route>
+
+            <Route exact path="/">
                 <Home/>
             </Route>
             
             <Route path="/properties">
               <Properties/>
             </Route>
+
+            <PrivateRoute path="/order/:id">
+              <Order/>
+            </PrivateRoute>
             
             <Route path="/login">
                 <Login />
@@ -35,9 +46,7 @@ function App() {
                 <Register />
             </Route>
             
-              <Route path="/">
-                <Home/>
-            </Route>
+              
             
               
               

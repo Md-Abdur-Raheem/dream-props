@@ -5,7 +5,7 @@ import DreamBtn from '../../../styledComponent/DreamBtn';
 const Footer = () => {
     const footerStyle = {
         backgroundColor: '#efefef',
-        padding: "10%",
+        padding: "2%",
         marginTop: 200
 
     }

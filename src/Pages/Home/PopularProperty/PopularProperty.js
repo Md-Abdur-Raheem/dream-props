@@ -7,7 +7,7 @@ import DreamBtn from '../../../styledComponent/DreamBtn';
 import { NavLink } from 'react-router-dom';
 
 const PopularProperty = ({ appartment }) => {
-   const { price, address, state, beds, baths, img } = appartment;
+   const { _id, price, address, state, beds, baths, img } = appartment;
     return (
         <Card sx={{
             maxWidth: 500,
@@ -55,7 +55,7 @@ const PopularProperty = ({ appartment }) => {
                         <span><i className="fas fa-bath"></i> {baths} baths</span>
                     </Typography>
                     <br />
-                    <NavLink to="/"
+                    <NavLink to={`/order/${_id }`}
                         style={{
                             textDecoration: 'none',
                             marginLeft: "31%"

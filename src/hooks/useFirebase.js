@@ -10,7 +10,7 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
-    const registerUser = (name, email, password) => {
+    const registerUser = (name, email, password, location, history) => {
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then(userCredential => {
@@ -24,9 +24,9 @@ const useFirebase = () => {
                 });
                 // Signed in 
                 const user = userCredential.user;
+                const destination = location.state?.from || '/';
                 setUser(user);
-                console.log(user);
-                // ...
+                history.replace(destination);
             })
             .catch((error) => {
                 setError(error.message);
@@ -34,14 +34,15 @@ const useFirebase = () => {
             .finally(() => setLoading(false));
     }
 
-    const logInUser = (email, password) => {
+    const logInUser = (email, password, location, history) => {
         setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
+                const destination = location.state?.from || '/'
                 setUser(user);
-                console.log(user);
+                history.replace(destination);
             })
             .catch((error) => {
                 setError(error.message);

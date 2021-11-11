@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import DreamBtn from '../../styledComponent/DreamBtn';
 import { Alert, Button, Container, Typography } from '@mui/material';
 import useAuth from '../../hooks/useAuth';
@@ -9,6 +9,8 @@ import useAuth from '../../hooks/useAuth';
 const Register = () => {
     const [error, setError] = useState('');
     const { registerUser } = useAuth();
+    const history = useHistory();
+    const location = useLocation();
 
     const inputStyles = {
         width: "280px",
@@ -23,8 +25,7 @@ const Register = () => {
     const onSubmit = data => {
         const { name, email, password, password2 } = data;
         if (password === password2) {
-            // const user = { name, email }
-            registerUser(name, email, password);
+            registerUser(name, email, password, location, history);
         }
         else {
             setError("Password didn't match");
