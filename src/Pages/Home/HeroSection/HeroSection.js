@@ -13,7 +13,6 @@ const HeroSection = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100vh',
-        minHeight: 600,
         marginTop: 64,
         textAlign: 'center',
         display: 'flex',
@@ -29,7 +28,7 @@ const HeroSection = () => {
             variant="h4"
             sx={{
                 color: "#fff",
-                lineHeight: 3,
+                marginBottom: 3,
                 fontFamily: "Noto Sans",
                 fontWeight: 'bold',
                 fontSize: 50
@@ -42,14 +41,15 @@ const HeroSection = () => {
                         border: "none",
                         outline: "none",
                         boxShadow: "none",
-                        width: 500,
+                        width: '100%',
                         height: 50,
                         borderRadius: 30,
                         padding: "10px 20px",
-                        marginRight: 5
+                        marginRight: 5,
+                        marginBottom: 5,
                     }}
                     placeholder="Your ZIP Code or City. e.g. New York"
-                    />
+                />
                 <DreamBtn>Search</DreamBtn>
             </Box>
             <Typography
@@ -57,10 +57,9 @@ const HeroSection = () => {
                 sx={{
                     color: "#fff",
                     marginTop: 3,
-                    width: "25%"
                 }}
             >
-            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <br/> there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean
             </Typography>
         </Box>
     );

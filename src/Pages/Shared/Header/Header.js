@@ -41,18 +41,44 @@ export default function HideAppBar(props) {
                         }} >
                         <Container>
                             <Toolbar>
+                                <NavLink
+                                    to="/home"
+                                    style={{
+                                        flexGrow: 1,
+                                        textDecoration: "none",
+                                        color: "#1F6F8B"
+                                    }}
+                                >
                                     <Typography
-                                        variant="h5"
-                                        component="div"
-                                        sx={{
-                                            flexGrow: 1,
-                                            fontWeight: "bold",
-                                            fontFamily: "Noto Sans",
-                                            color: "#1F6F8B",
-                                            textAlign:"start"
-                                        }}>
-                                    Dream Props
+                                    variant="h5"
+                                    component="div"
+                                    sx={{
+                                        
+                                        fontWeight: "bold",
+                                        fontFamily: "Noto Sans",
+                                        color: "#1F6F8B",
+                                        textAlign:"start"
+                                    }}>
+                                        Dream Props
                                     </Typography>
+                                    </NavLink>
+                                    <NavLink
+                                        to="/properties"
+                                        style={{
+                                            textDecoration: "none",
+                                            color: "black"
+                                        }}
+                                    >
+                                        <Button
+                                            variant="text"
+                                            sx={{
+                                                color: "#000",
+                                                fontWeight: "bold",
+                                                fontFamily: "Noto Sans",
+                                                fontSize: 16
+                                            }}
+                                        >Properties</Button>
+                                    </NavLink>
                                     <NavLink
                                         to="/login"
                                         style={{

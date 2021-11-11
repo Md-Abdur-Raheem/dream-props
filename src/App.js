@@ -8,6 +8,7 @@ import Header from './Pages/Shared/Header/Header';
 import Footer from './Pages/Shared/Footer/Footer';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
+import Properties from './Pages/Properties/Properties/Properties';
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
         <Switch>
             <Route path="/home">
               <Home/>
+          </Route>
+          
+          <Route path="/properties">
+             <Properties></Properties>
           </Route>
           
           <Route path="/login">

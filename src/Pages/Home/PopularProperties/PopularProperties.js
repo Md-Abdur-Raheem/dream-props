@@ -4,6 +4,7 @@ import PopularProperty from '../PopularProperty/PopularProperty';
 import { Container, Typography } from '@mui/material';
 import DreamBtn from '../../../styledComponent/DreamBtn';
 import { Box } from '@mui/system';
+import { NavLink } from 'react-router-dom';
 
 const PopularProperties = () => {
     const [appartments, setAppartments] = useState([]);
@@ -56,6 +57,7 @@ const PopularProperties = () => {
             <Box
                 style={{
                     display: "flex",
+                    flexWrap: "wrap",
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     marginBottom: 50
@@ -66,14 +68,20 @@ const PopularProperties = () => {
                     sx={{
                         color: '#1F6F8B',
                         textAlign: "start",
-                        
                         fontWeight: 'bold',
                         fontFamily: 'Noto Sans'
                     }}
                 >
                     POPULAR PROPERTIES
                 </Typography>
-                <DreamBtn>View All Properties</DreamBtn>
+                <NavLink
+                    to="/properties"
+                    style={{
+                        textDecoration: 'none'
+                    }}
+                >
+                    <DreamBtn>View All Properties</DreamBtn>
+                </NavLink>
            </Box>
             <Slider {...settings}>
                 {

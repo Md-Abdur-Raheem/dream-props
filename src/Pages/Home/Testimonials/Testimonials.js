@@ -5,7 +5,6 @@ const Testimonials = () => {
     return (
         <Container
         sx={{
-            // marginBottom: 100,
             height: "50vh"
         }}
         >

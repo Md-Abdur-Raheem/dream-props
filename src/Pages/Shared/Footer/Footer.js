@@ -5,7 +5,8 @@ import DreamBtn from '../../../styledComponent/DreamBtn';
 const Footer = () => {
     const footerStyle = {
         backgroundColor: '#efefef',
-        padding: 100
+        padding: "10%",
+        marginTop: 200
 
     }
     return (
@@ -16,7 +17,8 @@ const Footer = () => {
                 sx={{
                     fontFamily: "Noto Sans",
                     color: "#1F6F8B",
-                    marginBottom: 3
+                    marginBottom: 3,
+                    textAlign: 'center'
                 }}
             >
                 Be a part of our growing real state agents

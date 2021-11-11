@@ -7,7 +7,7 @@ const Advertise = () => {
     return (
         <Container
             sx={{
-                marginBottom: 50,
+                marginBottom: 100,
                 height: "50vh"
             }}
             
@@ -220,7 +220,8 @@ const Advertise = () => {
             <Box
                 sx={{
                     display: "flex",
-                    justifyContent: "space-evenly"
+                    justifyContent: "space-evenly",
+                    flexWrap: "wrap"
             }}
             >
                 <Box
