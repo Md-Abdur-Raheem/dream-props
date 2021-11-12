@@ -5,7 +5,7 @@ import PopularProperty from '../../Home/PopularProperty/PopularProperty'
 const Properties = () => {
     const [properties, setProperties] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/allApartments')
+        fetch('https://peaceful-island-86831.herokuapp.com/allApartments')
             .then(res => res.json())
             .then(data => setProperties(data))
     },[])

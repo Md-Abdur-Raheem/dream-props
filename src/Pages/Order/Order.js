@@ -1,19 +1,24 @@
-import { Container, Grid, Typography } from '@mui/material';
+import { Alert, Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import DreamBtn from '../../styledComponent/DreamBtn';
+import { styled, Box } from '@mui/system';
+import ModalUnstyled from '@mui/core/ModalUnstyled';
 
 const Order = () => {
     const { id } = useParams();
     const { user } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [appartment, setAppartment] = useState({});
-    const internationalNumberFormat = new Intl.NumberFormat('en-US')
+    const internationalNumberFormat = new Intl.NumberFormat('en-US');
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/appartments/${id}`)
+        fetch(`https://peaceful-island-86831.herokuapp.com/appartments/${id}`)
             .then(res => res.json())
             .then(data => setAppartment(data))
     }, [id])
@@ -32,16 +37,49 @@ const Order = () => {
     const onSubmit = data => {
         const { name, email, address, phone } = data;
         const order = { name, email, address, phone, appartment };
-        console.log(order);
-        fetch('http://localhost:5000/orders', {
+        fetch('https://peaceful-island-86831.herokuapp.com/orders', {
             method: "POST",
             headers: { 'content-type': "application/json" },
             body: JSON.stringify(order)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.insertedId) {
+                    handleOpen();
+                }
+            })
         
     }
+    const StyledModal = styled(ModalUnstyled)`
+            position: fixed;
+            z-index: 1300;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            `;
+    const Backdrop = styled('div')`
+            z-index: -1;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            -webkit-tap-highlight-color: transparent;
+            `;
+    const style = {
+            width: 400,
+            bgcolor: '#fff',
+            p: 2,
+            px: 4,
+            pb: 3,
+    };
+    
+
     return (
         <Container sx={{marginTop: 20}}>
             <Grid
@@ -137,8 +175,22 @@ const Order = () => {
                             <br/>
                         </Container>
                                 </Grid>
-                            </Grid>
-                        </Container>
+                        </Grid>
+                        <StyledModal
+                            aria-labelledby="unstyled-modal-title"
+                            aria-describedby="unstyled-modal-description"
+                            open={open}
+                            onClose={handleClose}
+                            BackdropComponent={Backdrop}
+                        >
+                            <Box sx={style}>
+                                <h2 style={{color: "#1F6F8B"}}
+                                    id="unstyled-modal-title"
+                                    >Success</h2>
+                                <Alert  id="unstyled-modal-description" severity="success">Booking Confirmed Successfully</Alert>
+                            </Box>
+                        </StyledModal>
+                </Container>
     );
 };
 

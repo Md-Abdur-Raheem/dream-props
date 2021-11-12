@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 const PopularProperties = () => {
     const [appartments, setAppartments] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/apartments')
+        fetch('https://peaceful-island-86831.herokuapp.com/apartments')
             .then(res => res.json())
             .then(data => setAppartments(data))
     }, [])
