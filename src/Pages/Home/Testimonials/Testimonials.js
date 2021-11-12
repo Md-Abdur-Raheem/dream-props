@@ -45,7 +45,7 @@ const Testimonials = () => {
       };
     
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://peaceful-island-86831.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
@@ -76,6 +76,7 @@ const Testimonials = () => {
                         key={review._id}
                         sx={{
                             padding: 3,
+                            height: 350
                         }}
                         elevation={3} >
                         <img

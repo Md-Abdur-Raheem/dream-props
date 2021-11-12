@@ -27,7 +27,7 @@ const AddReview = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = data => {
         const review = { ...data, email: user.email, rating: value };
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://peaceful-island-86831.herokuapp.com/reviews', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(review)

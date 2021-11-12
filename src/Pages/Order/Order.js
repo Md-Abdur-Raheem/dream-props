@@ -37,7 +37,8 @@ const Order = () => {
     const onSubmit = data => {
         const date = new Date().toLocaleDateString();
         const { name, email, address, phone } = data;
-        const order = { name, email, date, address, phone, appartment };
+        const status = "Pending";
+        const order = { name, email, date, address, phone, appartment, status };
         fetch('https://peaceful-island-86831.herokuapp.com/orders', {
             method: "POST",
             headers: { 'content-type': "application/json" },

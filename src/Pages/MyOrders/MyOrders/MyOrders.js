@@ -36,7 +36,7 @@ const MyOrders = () => {
 
     const handleCancelBooking = () => {
         if (id) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://peaceful-island-86831.herokuapp.com/orders/${id}`, {
                 method: "DELETE",
                 headers: {'content-type': 'application/json'}
             })
@@ -54,7 +54,7 @@ const MyOrders = () => {
 
 
         useEffect(() => {
-            fetch(`http://localhost:5000/orders?email=${user.email}`)
+            fetch(`https://peaceful-island-86831.herokuapp.com/orders?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => setMyOrders(data));
         }, [user.email, deleted]);
@@ -124,6 +124,28 @@ return (
                                 >
                                     <b>Booking Date: {order.date}</b>
                                 </Typography>
+                                {
+                                    order?.status==="Pending" ? <Typography
+                                    style={{
+                                        textAlign: "center",
+                                        color: "orange",
+                                    }}
+                                    gutterBottom
+                                    variant="p"
+                                    component="div">
+                                    <b>{order?.status}</b>
+                                    </Typography>
+                                        : order?.status === "Delivered" && <Typography
+                                        style={{
+                                            textAlign: "center",
+                                            color: "green",
+                                        }}
+                                        gutterBottom
+                                        variant="p"
+                                        component="div">
+                                        <b>{order?.status}</b>
+                                        </Typography>
+                                }
                                 <Typography
                                     style={{
                                         textAlign: "center",
@@ -156,10 +178,22 @@ return (
                                     <span><i className="fas fa-bath"></i> {order.appartment.baths} baths</span>
                                 </Typography>
                                 <br />
-                                <Button
+                                {
+                                    order?.status === "Pending" ? <Button
                                     onClick={() => handleClickOpen(order._id)}
                                     sx={{ color: "red" }}
-                                >Cancel Booking</Button>
+                                    >Cancel Booking</Button>
+                                        : <Typography
+                                        style={{
+                                            textAlign: "center",
+                                            color: "#f82a7e",
+                                        }}
+                                        gutterBottom
+                                        variant="p"
+                                        component="div">
+                                        <b>Thanks for being with us.</b>
+                                        </Typography>
+                                }
                             </Paper>
                         </Grid>
                     )
