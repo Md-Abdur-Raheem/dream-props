@@ -10,6 +10,7 @@ const HeroSection = () => {
         backgroundColor: "#666666",
         backgroundBlendMode: "lighten",
         backgroundRepeat: 'no-repeat',
+        backgroundAttachment: "fixed",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100vh',

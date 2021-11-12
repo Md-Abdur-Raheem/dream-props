@@ -100,9 +100,10 @@ return (
                         <Grid
                             key={order._id}
                             item
-                            xs={2}
-                            sm={4}
-                            md={4}>
+                            xs={12}
+                            sm={12}
+                            md={4}
+                            lg={4}>
                             <Paper
                                 elevation={3}
                                 sx={{
