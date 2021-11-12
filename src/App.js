@@ -15,6 +15,7 @@ import Order from './Pages/Order/Order';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Pay from './Pages/Pay/Pay';
 import MyOrders from './Pages/MyOrders/MyOrders/MyOrders';
+import AddReview from './Pages/AddReview/AddReview';
 
 function App() {
   return (
@@ -46,6 +47,10 @@ function App() {
 
             <PrivateRoute path="/myOrders">
               <MyOrders/>
+            </PrivateRoute>
+
+            <PrivateRoute path="/addReview">
+              <AddReview/>
             </PrivateRoute>
             
             <Route path="/login">

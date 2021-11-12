@@ -140,7 +140,15 @@ export default function HideAppBar(props) {
                                                 >
                                                     <MenuItem onClick={handleClose}>My orders</MenuItem>
                                                 </NavLink>
-                                                <MenuItem onClick={handleClose}>Review</MenuItem>
+                                                <NavLink
+                                                    to="/addReview"
+                                                    style={{
+                                                        textDecoration: "none",
+                                                        color: "black"
+                                                    }}
+                                                >
+                                                    <MenuItem onClick={handleClose}>Review</MenuItem>
+                                                </NavLink>
                                                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
                                             </Menu>
                                             <Button
