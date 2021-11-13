@@ -7,11 +7,14 @@ import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Slide from '@mui/material/Slide';
-import { Button, Container } from '@mui/material';
+import { Alert, Button, Container } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { styled } from '@mui/system';
+import ModalUnstyled from '@mui/core/ModalUnstyled';
+
 
 function Header(props) {
     const { children, window } = props;
@@ -35,6 +38,11 @@ export default function HideAppBar(props) {
     const { user, logOutUser } = useAuth();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    const [openModal, setOpenModal] = React.useState(false);
+    const handleOpenModal = () => setOpenModal(true);
+    const handleCloseModal = () => setOpenModal(false);
+
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -44,7 +52,39 @@ export default function HideAppBar(props) {
     const handleLogout = () => {
         handleClose();
         logOutUser();
+        handleOpenModal();
     }
+
+
+    const StyledModal = styled(ModalUnstyled)`
+            position: fixed;
+            z-index: 1300;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            `;
+    const Backdrop = styled('div')`
+            z-index: -1;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            -webkit-tap-highlight-color: transparent;
+            `;
+    const style = {
+            width: 400,
+            bgcolor: '#fff',
+            p: 2,
+            px: 4,
+            pb: 3,
+    };
+
     return (
     <React.Fragment>
         <CssBaseline />
@@ -152,7 +192,7 @@ export default function HideAppBar(props) {
                                                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
                                             </Menu>
                                             <Button
-                                            onClick={logOutUser}
+                                            onClick={handleLogout}
                                             variant="text"
                                             sx={{
                                                 color: "#000",
@@ -181,7 +221,21 @@ export default function HideAppBar(props) {
                                         >Login</Button>
                                          </NavLink>    
                                 }
-                                </Toolbar>
+                            </Toolbar>
+                            <StyledModal
+                                aria-labelledby="unstyled-modal-title"
+                                aria-describedby="unstyled-modal-description"
+                                open={openModal}
+                                onClose={handleCloseModal}
+                                BackdropComponent={Backdrop}
+                            >
+                                <Box sx={style}>
+                                    <h2 style={{color: "#1F6F8B"}}
+                                        id="unstyled-modal-title"
+                                        >Success</h2>
+                                    <Alert  id="unstyled-modal-description" severity="success">Logout Successfully</Alert>
+                                </Box>
+                             </StyledModal>
                     </Container>
                 </AppBar>
             </Header>
