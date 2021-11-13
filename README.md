@@ -1,9 +1,8 @@
 # Dream Props
-No matter who you are, or where you are going, our travel brands help every type of traveler not only find the trip that’s right for them, but get the best value every time. [Visit Tralive](https://dream-props.web.app/) 
+Whether you’re buying, selling or renting, we can help you move forward. [Visit Dream Props](https://dream-props.web.app/) 
 
-* Whether it’s planning a family vacation, booking for business, or organizing the trip of a lifetime,
-Trallive unlock the best possibilities for each individual traveler and each type of trip.
-* Our investments in technology make it possible for us to deliver innovations at a faster pace so planning and booking becomes a more effortless and exciting part of the journey, wherever that leads you.
-* Helps travelers easily plan and book their whole trip with the widest selection of vacation package.
-* The most rewarding to book a place to stay. Anywhere customers want to go.
-* Where families go to stay together. with beaches, houses, cabins, condos and more.
+* Find your place with an immersive photo and the most listing, including things you won't find anywhere else.
+* No matter what path you take to buy your home, we can help you navigate a successfull sell.
+* We are creating a seamless online experience - from booking on the largest rental network, to appliying, to paying rent.
+* With over 1 million+ homes for sale available on the website, Dream Props can match you with a house you will want to call home.
+* With more neighborhood insights than any other real estate website, we've captured the color and diversity of communities.

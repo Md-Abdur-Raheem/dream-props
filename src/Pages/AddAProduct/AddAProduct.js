@@ -23,9 +23,7 @@ const AddAProduct = () => {
     }
 
     const onSubmit = data => {
-        console.log(data);
-        // const order = { name, email, date, address, phone, /* appartment, */ status };
-        fetch('http://localhost:5000/addNewProperty', {
+        fetch('https://peaceful-island-86831.herokuapp.com/addNewProperty', {
             method: "POST",
             headers: { 'content-type': "application/json" },
             body: JSON.stringify(data)

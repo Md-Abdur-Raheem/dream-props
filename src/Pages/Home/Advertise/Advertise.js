@@ -33,7 +33,7 @@ const Advertise = () => {
                     marginBottom: 5
                     }}
             >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam enim pariatur similique <br/> debitis vel nisi qui reprehenderit totam? Quod maiores.
+            <b>Dream Props</b> has been bringing buyers and sellers together since 1997 by providing them with the simplest and most cost-effective route to selling or buying properties online and saving them thousands of dollars each in the process.
             </Typography>
 
             <Grid
@@ -116,7 +116,7 @@ const Advertise = () => {
                                     color: 'gray'
                                 }}
                             >
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum iste.
+                               Find out top rated properties from more than 2,500 properties.
                             </Typography>
                         </Box>
                     </Box>
@@ -164,7 +164,7 @@ const Advertise = () => {
                                     color: 'gray'
                                 }}
                             >
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum iste.
+                                Our more than 1,000 agents are ready to bring best suitable appartment for you.
                             </Typography>
                         </Box>
                     </Box>
@@ -209,7 +209,7 @@ const Advertise = () => {
                                     color: 'gray'
                                 }}
                             >
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum iste.
+                                No need to worry about safety and money. It's all ours concern.
                             </Typography>
                         </Box>
                     </Box>

@@ -21,6 +21,7 @@ import ManageAllOrder from './Pages/ManageAllOrder/ManageAllOrder';
 import AddAProduct from './Pages/AddAProduct/AddAProduct';
 import ManageProducts from './Pages/ManageProducts/ManageProducts';
 import AdminRoute from './Pages/AdminRoute/AdminRoute';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -80,6 +81,10 @@ function App() {
 
             <Route path="/register">
                 <Register />
+            </Route>
+
+            <Route path="*">
+                <NotFound />
             </Route>
  
           </Switch>

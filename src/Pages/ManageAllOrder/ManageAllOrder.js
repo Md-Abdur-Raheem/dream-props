@@ -25,14 +25,13 @@ const ManageAllOrder = () => {
     const [control, setControl] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allOrders')
+        fetch('https://peaceful-island-86831.herokuapp.com/allOrders')
             .then(res => res.json())
             .then(data => setAllOrders(data))
     }, [control])
 
     const updateToDelivered = id => {
-        console.log(id);
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://peaceful-island-86831.herokuapp.com/orders/${id}`, {
             method: "PUT",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({status: "Delivered"})
@@ -58,7 +57,7 @@ const ManageAllOrder = () => {
     };
     const handleCancelBooking = () => {
         if (id) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://peaceful-island-86831.herokuapp.com/orders/${id}`, {
                 method: "DELETE",
                 headers: {'content-type': 'application/json'}
             })

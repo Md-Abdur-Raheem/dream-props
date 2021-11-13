@@ -25,7 +25,7 @@ const ManageProducts = () => {
     const internationalNumberFormat = new Intl.NumberFormat('en-US');
 
     useEffect(() => {
-        fetch('http://localhost:5000/allApartments')
+        fetch('https://peaceful-island-86831.herokuapp.com/allApartments')
             .then(res => res.json())
             .then(data => setAllAppartments(data))
     }, [control])
@@ -42,7 +42,7 @@ const ManageProducts = () => {
     };
     const handleDelete = () => {
         if (id) {
-            /* fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://peaceful-island-86831.herokuapp.com/allApartments/${id}`, {
                 method: "DELETE",
                 headers: {'content-type': 'application/json'}
             })
@@ -53,7 +53,7 @@ const ManageProducts = () => {
                         handleOpenModal();
                         setControl(!control);
                     }
-                }) */
+                })
             }
             handleDialogClose();
     }
@@ -151,7 +151,7 @@ const ManageProducts = () => {
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description">
-                            If you delete this property all your customer orderd this property will loose their data and it can't be restored.
+                            If you delete this property all the information related to this property will be removed and it can't be restored.
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>

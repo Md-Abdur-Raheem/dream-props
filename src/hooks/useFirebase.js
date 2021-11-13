@@ -79,7 +79,7 @@ const useFirebase = () => {
     }, [auth]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/admin/${user?.email}`)
+        fetch(`https://peaceful-island-86831.herokuapp.com/admin/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 if (data.admin) {
@@ -95,7 +95,7 @@ const useFirebase = () => {
             body: JSON.stringify(newUser)
         })
         .then(res=> res.json())
-        .then(data => console.log(data))
+        .then(data => data)
     }
 
     return {
