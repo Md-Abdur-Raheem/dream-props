@@ -35,7 +35,7 @@ Header.propTypes = {
 };
 
 export default function HideAppBar(props) {
-    const { user, logOutUser } = useAuth();
+    const { user, logOutUser, admin } = useAuth();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const [openModal, setOpenModal] = React.useState(false);
@@ -134,7 +134,7 @@ export default function HideAppBar(props) {
                                                 fontSize: 16
                                             }}
                                         >Properties</Button>
-                                    </NavLink>
+                                </NavLink>
                                 {
                                     user.email ? 
                                         <Box>
@@ -153,7 +153,56 @@ export default function HideAppBar(props) {
                                             >
                                                 Dashboard
                                             </Button>
-                                            <Menu
+                                            {
+                                                admin ? <Menu
+                                                id="basic-menu"
+                                                anchorEl={anchorEl}
+                                                open={open}
+                                                onClose={handleClose}
+                                                MenuListProps={{
+                                                'aria-labelledby': 'basic-button',
+                                                }}
+                                            >
+                                                <NavLink
+                                                    to="/manageAllOrder"
+                                                    style={{
+                                                        textDecoration: "none",
+                                                        color: "black"
+                                                    }}
+                                                >
+                                                    <MenuItem onClick={handleClose}>Manage all order</MenuItem>
+                                                </NavLink>
+                                                <NavLink
+                                                    to="/addAProduct"
+                                                    style={{
+                                                        textDecoration: "none",
+                                                        color: "black"
+                                                    }}
+                                                >
+                                                    <MenuItem onClick={handleClose}>Add a product</MenuItem>
+                                                </NavLink>
+                                                <NavLink
+                                                    to="/addAdmin"
+                                                    style={{
+                                                        textDecoration: "none",
+                                                        color: "black"
+                                                    }}
+                                                >
+                                                    <MenuItem onClick={handleClose}>Make admin</MenuItem>
+                                                </NavLink>
+                                                <NavLink
+                                                    to="/manageProducts"
+                                                    style={{
+                                                        textDecoration: "none",
+                                                        color: "black"
+                                                    }}
+                                                >
+                                                    <MenuItem onClick={handleClose}>Manage products</MenuItem>
+                                                </NavLink>
+                                                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                                                </Menu>
+                                                    :
+                                                    <Menu
                                                 id="basic-menu"
                                                 anchorEl={anchorEl}
                                                 open={open}
@@ -191,6 +240,7 @@ export default function HideAppBar(props) {
                                                 </NavLink>
                                                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
                                             </Menu>
+                                            }
                                             <Button
                                             onClick={handleLogout}
                                             variant="text"

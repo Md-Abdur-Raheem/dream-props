@@ -7,6 +7,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
 
     const auth = getAuth();
 
@@ -58,6 +59,7 @@ const useFirebase = () => {
         signOut(auth)
             .then(() => {
                 setUser({});
+                setAdmin(false);
           }).catch((error) => {
               setError(error.message);
           })
@@ -65,16 +67,26 @@ const useFirebase = () => {
     }
 
     useEffect(() => {
-       const usnsubscribe = onAuthStateChanged(auth, (user) => {
+        const usnsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
             } else {
                 setUser({});
-           }
-           setLoading(false);
-       });
+            }
+            setLoading(false);
+        });
         return () => usnsubscribe;
-    }, [auth])
+    }, [auth]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/admin/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.admin) {
+                    setAdmin(data.admin);
+                }
+            })
+    },[user?.email])
     
     const saveUser = (newUser) => {
         fetch('https://peaceful-island-86831.herokuapp.com/users', {
@@ -92,7 +104,8 @@ const useFirebase = () => {
         logOutUser,
         user,
         error,
-        loading
+        loading,
+        admin
     }
 }
 export default useFirebase;
