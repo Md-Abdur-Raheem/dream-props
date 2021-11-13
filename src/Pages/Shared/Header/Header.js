@@ -179,7 +179,7 @@ export default function HideAppBar(props) {
                                                         color: "black"
                                                     }}
                                                 >
-                                                    <MenuItem onClick={handleClose}>Add a product</MenuItem>
+                                                    <MenuItem onClick={handleClose}>Add a property</MenuItem>
                                                 </NavLink>
                                                 <NavLink
                                                     to="/addAdmin"
@@ -197,7 +197,7 @@ export default function HideAppBar(props) {
                                                         color: "black"
                                                     }}
                                                 >
-                                                    <MenuItem onClick={handleClose}>Manage products</MenuItem>
+                                                    <MenuItem onClick={handleClose}>Manage properties</MenuItem>
                                                 </NavLink>
                                                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
                                                 </Menu>
